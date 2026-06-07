@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_DATABASE: n_chat_app
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7
+    container_name: redis-db
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql_data:

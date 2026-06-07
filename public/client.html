@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="message-text" type="text" placeholder="type message" />
+    <button id="message-send-btn">send</button>
+    <ul id="message-container"></ul>
+  </body>
+  <script>
+    const message = document.getElementById("message-text");
+    const btn = document.getElementById("message-send-btn");
+    const ul = document.getElementById("message-container");
+    const { port } = window.location;
+    const ws = new WebSocket(`ws://localhost:${port}`);
+    ws.onopen = () => {
+      console.log("connected");
+    };
+
+    btn.addEventListener("click", () => {
+      ws.send(message.value);
+      message.value = "";
+    });
+    ws.onmessage = (event) => {
+      const li = document.createElement('li');
+      li.innerText = event.data;
+      ul.appendChild(li);
+    };
+  </script>
+</html>

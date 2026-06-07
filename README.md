@@ -47,3 +47,56 @@ Nchat/
 
 - **Node.js** — HTTP server
 - **ws** — WebSocket library
+
+
+src/
+│
+├── app.js
+├── server.js
+│
+├── config/
+│   ├── db.js
+│   ├── redis.js
+│
+├── modules/
+│   │
+│   ├── auth/
+│   │   ├── auth.controller.js
+│   │   ├── auth.service.js
+│   │   ├── auth.repository.js
+│   │   ├── auth.routes.js
+│   │   └── auth.validation.js
+│   │
+│   ├── user/
+│   │   ├── user.controller.js
+│   │   ├── user.service.js
+│   │   ├── user.repository.js
+│   │   └── user.routes.js
+│   │
+│   ├── message/
+│   │   ├── message.controller.js
+│   │   ├── message.service.js
+│   │   ├── message.repository.js
+│   │   └── message.routes.js
+│   │
+│   └── websocket/
+│       ├── websocket.server.js
+│       ├── websocket.handler.js
+│       └── online-users.js
+│
+├── middleware/
+│   ├── auth.middleware.js
+│   ├── error.middleware.js
+│   └── logger.middleware.js
+│
+├── utils/
+│   ├── jwt.js
+│   ├── password.js
+│   └── cookie.js
+│
+├── schemas/
+│   ├── auth.schema.js
+│   └── message.schema.js
+│
+└── constants/
+    └── websocket-events.js

@@ -8,6 +8,13 @@
       "when": 1780943506984,
       "tag": "0000_clumsy_korath",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1780945582393,
+      "tag": "0001_warm_sugar_man",
+      "breakpoints": true
     }
   ]
 }

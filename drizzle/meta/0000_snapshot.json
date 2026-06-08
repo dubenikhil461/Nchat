@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "0d4231cc-fbba-4473-acd7-90ed657cb8ee",
+  "id": "dbecf566-4423-44ea-98e8-715aebcf1fc9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "auth": {
@@ -76,15 +76,16 @@
           "columns": [
             "id"
           ]
-        },
-        "auth_email": {
-          "name": "auth_email",
+        }
+      },
+      "uniqueConstraints": {
+        "auth_email_unique": {
+          "name": "auth_email_unique",
           "columns": [
             "email"
           ]
         }
       },
-      "uniqueConstraints": {},
       "checkConstraint": {}
     },
     "message": {

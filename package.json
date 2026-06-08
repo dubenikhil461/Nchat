@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch src/app.js",
-    "db:generate" : "npx drizzle-kit generate",
-    "db:migrate" : "npx drizzle-kit migrate"
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "ws": "^8.21.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^25.9.2",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.22.4",

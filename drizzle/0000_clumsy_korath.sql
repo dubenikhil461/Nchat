@@ -7,7 +7,8 @@ CREATE TABLE `auth` (
 	`isBlocked` boolean DEFAULT false,
 	`createdAt` timestamp NOT NULL DEFAULT (now()),
 	`updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
-	CONSTRAINT `auth_id` PRIMARY KEY(`id`)
+	CONSTRAINT `auth_id` PRIMARY KEY(`id`),
+	CONSTRAINT `auth_email_unique` UNIQUE(`email`)
 );
 
 CREATE TABLE `message` (

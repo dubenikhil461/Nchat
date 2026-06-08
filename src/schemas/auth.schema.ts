@@ -4,7 +4,7 @@ import * as t from "drizzle-orm/mysql-core";
 export const Auth = mysqlTable("auth", {
   id:t.varchar('id',{length:6}).notNull().primaryKey(),
   name: t.varchar("name", { length: 30 }).notNull(),
-  email: t.varchar("email", { length: 255 }).notNull().primaryKey(),
+  email: t.varchar("email", { length: 255 }).notNull().unique(),
   password: t.varchar("password", { length: 255 }),
   saltString: t.varchar("salt_string", { length: 255 }),
   isBlocked: t.boolean().default(false),

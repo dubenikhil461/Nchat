@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "a7e9a526-1d8f-4e93-ab4a-f6f3631735eb",
+  "id": "0d4231cc-fbba-4473-acd7-90ed657cb8ee",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "auth": {
@@ -71,10 +71,110 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {
+        "auth_id": {
+          "name": "auth_id",
+          "columns": [
+            "id"
+          ]
+        },
         "auth_email": {
           "name": "auth_email",
           "columns": [
             "email"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "message": {
+      "name": "message",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sender_id": {
+          "name": "sender_id",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "receiver_id": {
+          "name": "receiver_id",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "text": {
+          "name": "text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "delivered_at": {
+          "name": "delivered_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "read_at": {
+          "name": "read_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "message_sender_id_auth_id_fk": {
+          "name": "message_sender_id_auth_id_fk",
+          "tableFrom": "message",
+          "tableTo": "auth",
+          "columnsFrom": [
+            "sender_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "message_receiver_id_auth_id_fk": {
+          "name": "message_receiver_id_auth_id_fk",
+          "tableFrom": "message",
+          "tableTo": "auth",
+          "columnsFrom": [
+            "receiver_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "message_id": {
+          "name": "message_id",
+          "columns": [
+            "id"
           ]
         }
       },

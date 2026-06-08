@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch src/app.js",
-    "db:generate" : "npx drizzle-kit generate"
+    "db:generate" : "npx drizzle-kit generate",
+    "db:migrate" : "npx drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ import { mysqlTable } from "drizzle-orm/mysql-core";
 import * as t from "drizzle-orm/mysql-core";
 
 export const Auth = mysqlTable("auth", {
-  id:t.varchar('id',{length:6}).notNull(),
+  id:t.varchar('id',{length:6}).notNull().primaryKey(),
   name: t.varchar("name", { length: 30 }).notNull(),
   email: t.varchar("email", { length: 255 }).notNull().primaryKey(),
   password: t.varchar("password", { length: 255 }),

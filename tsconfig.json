@@ -20,6 +20,8 @@
     "declaration": true,
     "declarationMap": true,
 
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,

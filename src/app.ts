@@ -4,8 +4,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import express from "express";
 import { WebSocketServer } from "ws";
-import authRoutes from "./modules/auth/auth.routes.ts";
-import userRoutes from "./modules/user/user.routes.ts";
+import routes from "./routes/routes.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,8 +12,7 @@ const indexPath = path.join(__dirname, "..", "public", "client.html");
 
 const app = express();
 app.use(express.json());
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api", routes);
 
 app.get("/", async (_req, res) => {
   try {

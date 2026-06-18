@@ -1,8 +1,13 @@
 import { toFile } from "@imagekit/nodejs";
 import { imagekit } from "../config/imagekit.ts";
 
+type UploadedFile = {
+  buffer: Buffer;
+  originalname: string;
+};
+
 export async function uploadProfilePhoto(
-  file: Express.Multer.File,
+  file: UploadedFile,
   userId: string,
 ) {
   const response = await imagekit.files.upload({
